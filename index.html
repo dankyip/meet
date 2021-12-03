@@ -23,10 +23,26 @@
             <p class="paragraph-text">
                 Meet makes it easy to connect with others face-to-face virtually and collaborate across any device
             </p>
-            <form>
+            <div class="signButtons">
                 <button class="signup">Sign up</button>
                 <button class="signin">Sign in</button>
-            </form>
+            </div>
+            <!-- The Modal -->
+            <div class="modal-container">
+                <!-- The content -->
+                <div class="modal-content">
+                    <img src="imgs\logo.svg" class="meet-logo" alt="meet-logo">
+                    <span class="close">&times;</span>
+                    <span class="modal-header">Sign in to Meet</span>
+                    <form action="">
+                        <div class="email">Email</div>
+                        <input type="text">
+                        <div class="password">Password</div>
+                        <input type="password">
+                        <button class="modal-button">Log in</button>
+                    </form>
+                </div>
+            </div>
         </section>
         <div class="vr1"></div>
         <div class="circle">O1</div>
@@ -67,5 +83,6 @@
             </div>
         </footer>
     </main>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ body {
 
 .meet-logo {
     display: block;
-    margin: 48px auto 0;
+    margin: 28px auto 20px;
 }
 
 .group-photos-container {
@@ -46,6 +46,7 @@ body {
     font-size: 16px;
     font-weight: 900;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .signup {
@@ -58,6 +59,92 @@ body {
     width: 139px;
     margin: 0 auto;
     background: #8551B1;
+}
+
+.modal-container {
+    display: none;
+}
+
+.modal-container,
+.display-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.display-modal {
+    display: block;
+}
+
+.modal-content {
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    height: 100%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    font-size: 23px;
+    line-height: 28px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.modal-header, 
+.email,
+.password {
+    font-weight: 900;
+}
+
+.email, 
+.password {
+    padding-top: 16px;
+    font-size: 16px;
+}
+
+input {
+    font-size: inherit;
+    width: 99%;
+    height: 22px;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    padding-left: 5px;
+    border: 0 solid black;
+    border-width: 1px;
+    border-radius: 0.5rem;
+}
+
+.modal-button {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    margin-top: 16px;
+    background-color: #8551B1;
+    border-radius: 9999px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
 }
 
 .vr1,
@@ -207,6 +294,20 @@ footer  {
     .paragraph-text {
         padding: 0 162px;
     }
+
+    .modal-content {
+        margin: 25px auto 0;
+        height: 85%;
+        border-radius: 3%;
+    }
+
+    .display-modal {
+        display: flex;
+    }
+
+    input {
+        width: 298px;
+    }
     
     .inner-text-paragraph {
         padding: 0 56px;
@@ -276,7 +377,7 @@ footer  {
         padding: 0 23%;
     }
 
-    form {
+    .signButtons {
         display: flex;
     }
 
