@@ -89,6 +89,11 @@ body {
     height: 100%;
 }
 
+#signup-form,
+#signin-form {
+    display: none;
+}
+
 .close {
     color: #aaa;
     float: right;
@@ -112,11 +117,13 @@ body {
 }
 
 .modal-header, 
+.signin-name,
 .email,
 .password {
     font-weight: 900;
 }
 
+.signin-name,
 .email, 
 .password {
     padding-top: 16px;
@@ -135,7 +142,7 @@ input {
     border-radius: 0.5rem;
 }
 
-.modal-button {
+#modal-button {
     display: block;
     width: 100%;
     min-height: 36px;
@@ -145,6 +152,7 @@ input {
     font-size: 15px;
     color: rgb(255, 255, 255);
     font-weight: 900;
+    cursor: pointer;
 }
 
 .vr1,
