@@ -117,20 +117,20 @@ body {
 }
 
 .modal-header, 
-.signin-name,
-.email,
-.password {
+.label {
     font-weight: 900;
 }
 
-.signin-name,
-.email, 
-.password {
+.label {
     padding-top: 16px;
     font-size: 16px;
 }
 
-input {
+#input-name,
+#input-email,
+#input-password,
+#input-email2,
+#input-password2 {
     font-size: inherit;
     width: 95%;
     height: 22px;
@@ -142,7 +142,8 @@ input {
     border-radius: 0.5rem;
 }
 
-#modal-button {
+#submit-signup,
+#submit-signin {
     display: block;
     width: 100%;
     min-height: 36px;
@@ -153,6 +154,14 @@ input {
     color: rgb(255, 255, 255);
     font-weight: 900;
     cursor: pointer;
+}
+
+#submit-signin {
+    background-color: #8551B1;
+}
+
+#submit-signup {
+    background-color: #4D96A9; 
 }
 
 .vr1,
@@ -313,7 +322,11 @@ footer  {
         display: flex;
     }
 
-    input {
+    #input-name,
+    #input-email,
+    #input-password,
+    #input-email2,
+    #input-password2 {
         width: 298px;
     }
     

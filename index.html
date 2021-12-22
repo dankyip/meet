@@ -34,22 +34,31 @@
                     <img src="imgs\logo.svg" class="meet-logo" alt="meet-logo">
                     <span class="close">&times;</span>
                     <span class="modal-header"></span>
+                    <!-- signup form -->
                     <form id="signup-form" action="">
-                        <div class="signin-name">Name</div>
-                        <input type="text">
-                        <div class="email">Email</div>
-                        <input type="text">
-                        <div class="password">Password</div>
-                        <input type="password">
-                        <button id="modal-button">Sign up</button>
+                        <div class="form-control error">
+                            <div class="label">Name</div>
+                            <input id="input-name" type="text">
+                        </div>
+                        <div class="form-control">
+                            <div class="label">Email</div>
+                            <input id="input-email" type="text">
+                        </div>
+                        <div class="form-control">
+                            <div class="label">Password</div>
+                            <input id="input-password" type="password">
+                        </div>
+                        <button id="submit-signup">Sign up</button>
                     </form>
+                    <!-- signin form -->
                     <form id="signin-form" action="">
-                        <div class="email">Email</div>
-                        <input type="text">
-                        <div class="password">Password</div>
-                        <input type="password">
-                        <button id="modal-button">Log in</button>
+                        <div class="label">Email</div>
+                        <input id="input-email2" type="text">
+                        <div class="label">Password</div>
+                        <input id="input-password2" type="password">
+                        <button id="submit-signin">Log in</button>
                     </form>
+                    <span class="error-message"></span>
                 </div>
             </div>
         </section>
