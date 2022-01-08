@@ -15,80 +15,29 @@ const submitSignin = document.getElementById("submit-signin");
 const emailForSignin = document.getElementById("input-email2");
 const passwordForSignin = document.getElementById("input-password2");
 
-const arrayOfSp = ["!", "@", "#", "$", "%", "&", "*", "_", "-", "?"];
-
-const special = (c) => {
-    for (let i = 0; i < arrayOfSp.length; i++)
-    {
-        if (c === arrayOfSp[i])
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
 const errorFound = (message, e) => {
     e.preventDefault();
-    errorMessage.innerHTML = message.join(' ,'); 
+    errorMessage.innerHTML = message.join(' ');
 }
 
 //checks that all password requirments are met
-const passwordCheck = (e) => {
-    let message = [];
-    let passwordValue = "";
-    let upperCaseCheck = false;
-    let lowerCaseCheck = false;
-    let specialCharacterCheck = false;
+const passwordCheck = () => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*., ?]).+$/;
     
-    if (passwordForSignup.value.length >= 6 && passwordForSignup.value.length <= 17)
-    {    
-        for (let i = 0; i < passwordForSignup.value.length; i++)
-        {
-            passwordValue = passwordForSignup.value[i];
-
-            if (special(passwordValue))
-            {
-                specialCharacterCheck = true;
-            }
-            else if (passwordForSignup.value[i] === passwordValue.toUpperCase())
-            {
-                upperCaseCheck = true;
-            }
-            else if (passwordForSignup.value[i] === passwordValue.toLowerCase())
-            {
-                lowerCaseCheck = true;
-            }
-        }
-        if (!upperCaseCheck || !lowerCaseCheck || !specialCharacterCheck)
-        {
-            message.push("Something is missing, try again");
-            errorFound(message, e);
-        }
-    }
-        
-    else 
-    {
-        message.push("Password must contain 6 - 17 characters");
-        errorFound(message, e);
-    }
-    
+    return regex.test(passwordForSignup.value);
 }
 
+//Checks that all input requirements are filled out before signing in
 const formValidation2 = (e) => {
     let message = [];
     
-    if (emailForSignin.value === "" && passwordForSignin.value === "")
+    if (emailForSignin.value.trim() === "")
     {
-        message.push("Email and Password required");
+        message.push("Email required<br>");
         errorFound(message, e);
     }
-    else if (emailForSignin.value === "")
-    {
-        message.push("Email required");
-        errorFound(message, e);
-    }
-    else if (passwordForSignin.value === "")
+    
+    if (passwordForSignin.value.trim() === "")
     {
         message.push("Password required");
         errorFound(message, e);
@@ -99,21 +48,33 @@ const formValidation2 = (e) => {
 const formValidation = (e) => {
     let message = [];
 
-    if (nameForSignup.value === "")
+    if (nameForSignup.value.trim() === "")
     {
-        message.push("Name required");
+        message.push("Name required<br>");
         errorFound(message, e);
     }
     
-    else if (emailForSignup.value === "")
+    if (emailForSignup.value.trim() === "")
     {
-        message.push("Email required");
+        message.push("Email required<br>");
         errorFound(message, e);
     }
-    else 
+
+    // Checks that password input mets the required length of characters 
+    // than calls to check for specified character requirements
+    if (passwordForSignup.value.trim().length >= 6 && passwordForSignup.value.trim().length <= 17)
     {
-        passwordCheck(e);        
-    }   
+        if (!passwordCheck())
+        {
+            message.push("Something is missing");
+            errorFound(message, e);
+        }
+    }
+    else
+    {
+        message.push("Password must contain 6 - 17 characters");
+        errorFound(message, e);
+    }          
 }
 
 // Controls modal display
@@ -129,6 +90,8 @@ const handleModalExit = () => {
     signupForm.style.display = "none";
     signinForm.style.display = "none";
     errorMessage.innerHTML = ``;
+    signupForm.reset();
+    signinForm.reset();
 }
 
 // Controls sign up form layout
